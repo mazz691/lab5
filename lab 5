@@ -19,4 +19,17 @@ if result !=0:
 #session is expecting username, enter details
 session.sendline(username)
 result = session.expect(['Password:', pexpect.TIMEOUT])
-#
+if result != 0:
+  print('--- FAILURE! enterling password: ', password)
+  exit()
+  
+print('----------------')
+print('')
+print('--- Success! connecting to: ', ip_address)
+print('---               Username: ', username)
+print('---               Password: ', password)
+print('')
+print('------------------')
+
+
+session.sendline('quite')
